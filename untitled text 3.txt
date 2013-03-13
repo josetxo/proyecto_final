@@ -1,0 +1,12 @@
+1- validar_login(dni,pass)  => Validar campos vacios y validar DNI.
+
+
+2- validar_borrar_modificar_ausencia(id_ausencia) => Validar campo vacio y numerico.
+
+
+
+4- validar_insertar_modificar2(nombre, apellido1, apellido2, telefono, id_perfil, id_centro, dni, pass)" => Validar vampos vacios; telefono es numerico y 9 caracteres; validar que alguna opcion de las combobox ha sido escogida; validar DNI; validar PASS con minimo 5 caracteres.
+
+
+5- validar_insertar_modificar2_ausencia((fecha), tipo_ausencia)"  => De momento validar que se ha escogido una opcion del combobox.
+
