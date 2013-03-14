@@ -8,7 +8,7 @@ class rol_BD extends GenericoBD {
         
         $query="select * from rol where id=(select idrol from usuario where id=".$trabajador->getId_perfil().")";
         
-        $rs=mysql_query($conexion,$query) or die (mysql_error());
+        $rs=mysql_query($query,$conexion) or die (mysql_error());
         $rol=null;
         
         if(mysql_num_rows($rs)==1){
@@ -26,7 +26,7 @@ class rol_BD extends GenericoBD {
         
         $query="select * from rol order by id_rol";
         
-        $rs=  mysql_query($conexion,$query) or die (mysql_error());
+        $rs=  mysql_query($query,$conexion) or die (mysql_error());
         $roles=NULL;
         
         if(mysql_num_rows($rs)>0){
@@ -43,7 +43,7 @@ class rol_BD extends GenericoBD {
         
         $query="select * from rol where id=".$id_rol;
         
-        $rs=  mysql_query($conexion, $query) or die(mysql_error());
+        $rs=  mysql_query($query,$conexion) or die(mysql_error());
         $rol=NULL;
         
         if(mysql_num_rows($rs)==0){

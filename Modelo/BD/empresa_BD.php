@@ -8,7 +8,7 @@ class empresa_BD extends GenericoBD {
         
         $query="select * from empresa where nif=(select nif from centro where id=".$centro->getId_centro().")";
         
-        $rs=mysql_query($conexion,$query) or die (mysql_error());
+        $rs=mysql_query($query,$conexion) or die (mysql_error());
         $empresa=null;
         
         if(mysql_num_rows($rs)==1){
@@ -26,7 +26,7 @@ class empresa_BD extends GenericoBD {
         
         $query="select * from empresa order by nif";
         
-        $rs=  mysql_query($conexion,$query) or die (mysql_error());
+        $rs=  mysql_query($query,$conexion) or die (mysql_error());
         $empresas=NULL;
         
         if(mysql_num_rows($rs)>0){
@@ -43,7 +43,7 @@ class empresa_BD extends GenericoBD {
         
         $query="select * from empresa where id=".$id_empresa;
         
-        $rs=  mysql_query($conexion, $query) or die(mysql_error());
+        $rs=  mysql_query($query,$conexion) or die(mysql_error());
         $empresa=NULL;
         
         if(mysql_num_rows($rs)==0){

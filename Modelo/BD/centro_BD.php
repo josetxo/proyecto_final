@@ -9,7 +9,7 @@ class centro_BD extends GenericoBD{
         
         $query="select * from centro order by id";
         
-        $rs=  mysql_query($conexion,$query) or die(mysql_error());
+        $rs=  mysql_query($query,$conexion) or die(mysql_error());
         $centros=NULL;
         
         if(mysql_num_rows($rs)>0){
@@ -27,7 +27,7 @@ class centro_BD extends GenericoBD{
         
         $query="select * from centro where nif=".$empresa->getNif();
         
-        $rs=  mysql_query($conexion,$query) or die(mysql_error());
+        $rs=  mysql_query($query,$conexion) or die(mysql_error());
         $centros=NULL;
         
         if(mysql_num_rows($rs)>0){
@@ -45,7 +45,7 @@ class centro_BD extends GenericoBD{
         
         $query="select * from centro where id=".$id_centro;
         
-        $rs=  mysql_query($conexion, $query) or die(mysql_error());
+        $rs=  mysql_query($query,$conexion) or die(mysql_error());
         $centro=NULL;
         
         if(mysql_num_rows($rs)==0){
@@ -63,7 +63,7 @@ class centro_BD extends GenericoBD{
         
         $query="select * from centro where id=(select centro_id from ausencia_general where id=".$ausencia_general->getId_ausencia_general().")";
         
-        $rs=  mysql_query($conexion, $query) or die(mysql_error());
+        $rs=  mysql_query($query,$conexion) or die(mysql_error());
         $centro=NULL;
         
         if(mysql_num_rows($rs)==0){
@@ -81,7 +81,7 @@ class centro_BD extends GenericoBD{
         
         $query="select * from centro where id=(select id_centro from trabajador where id=".$trabajador->getId_trabajador().")";
         
-        $rs=  mysql_query($conexion, $query) or die(mysql_error());
+        $rs=  mysql_query($query,$conexion) or die(mysql_error());
         $centro=NULL;
         
         if(mysql_num_rows($rs)==0){

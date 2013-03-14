@@ -9,7 +9,7 @@ class perfil_BD extends GenericoBD{
         
         $query="SELECT * FROM perfil WHERE id = ( SELECT id_perfil FROM trabajador WHERE id =".$trabajador->getId_trabajador().")";
         
-        $rs=  mysql_query($conexion,$query) or die (mysql_error()) ;
+        $rs=  mysql_query($query,$conexion) or die (mysql_error()) ;
         $perfil=NULL;
         
         if(mysql_num_rows($rs)==1){
@@ -27,7 +27,7 @@ class perfil_BD extends GenericoBD{
         
         $query="select * from perfil order by id";
         
-        $rs=  mysql_query($conexion,$query) or die (mysql_error());
+        $rs=  mysql_query($query,$conexion) or die (mysql_error());
         $perfiles=NULL;
         
         if(mysql_num_rows($rs)>0){ 
@@ -44,7 +44,7 @@ class perfil_BD extends GenericoBD{
         
         $query="select * from perfil where id=".$id_perfil;
         
-        $rs=  mysql_query($conexion,$query) or die (mysql_error());
+        $rs=  mysql_query($query,$conexion) or die (mysql_error());
         $perfil=NULL;
         
         if(mysql_num_rows($rs)==1){
