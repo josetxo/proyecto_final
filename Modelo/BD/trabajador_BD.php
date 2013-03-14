@@ -92,6 +92,69 @@ class trabajador_BD extends GenericoBD{
         GenericoBD::desconectar($conexion);
         return $trabajadores;
     }
+    
+    public function eliminarTrabajador($dni)
+    {
+    	$conexion = GenericoBD::conectar();
+    	
+    	$query = "SELECT * FROM trabajador WHERE dni='".$dni."'";
+    	$r = mysql_query($query,$conexion) or die (mysql_error());
+    	
+    	if(mysql_num_rows($r)>0)
+    	{
+    		$arrayregistro = mysql_fetch_assoc($r);
+    		
+            $trabajador = new Trabajador($arrayregistro);
+            
+            EliminarAusenciasDeTrabajador($trabajador->getId());
+            
+            self::EliminarTrabajadorDeTrabajadores($trabajador->getId());
+            
+            return true;
+        }
+        else
+        {
+        	return false;
+        }
+    }
+    
+    public function EliminarTrabajadorDeTrabajadores($id)
+    {
+    	$conexion = GenericoBD::conectar();
+    	
+    	$query = "DELETE from trabajador WHERE id='".$id."'";
+    	
+    	mysql_query($query,$conexion) or die (mysql_error());
+    }
+    
+    public function ModificarTrabajador($dni)
+    {
+    	$conexion = GenericoBD::conectar();
+    	
+    	$trabajador = self::buscarTrabajadorPorDNI($dni);
+    	
+    	
+    }
+    
+    public function buscarTrabajadorPorDNI($dni)
+    {
+    	$conexion = GenericoBD::conectar();
+    	
+    	$query = "SELECT * FROM trabajador WHERE dni='".$dni."'";
+    	$r = mysql_query($query,$conexion) or die (mysql_error());
+    	
+    	if(mysql_num_rows($r)>0)
+    	{
+    		$arrayregistro = mysql_fetch_assoc($r);
+    		$trabajador = new Trabajador();
+    		
+    		return $trabajador;
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    }
 }
 
 ?>

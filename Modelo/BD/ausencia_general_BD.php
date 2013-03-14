@@ -1,13 +1,13 @@
 <?php
 require_once 'GenericoBD.php';
 
-class ausencia_individual_BD extends GenericoBD{
+class ausencia_general_BD extends GenericoBD{
     
-    public function obtenerAusenciasTrabajador($trabajador){//obtener todas las ausencias de un trabajador
+    public function obtenerAusenciasCentro($centro){//obtener todos las ausencias generales de un centro
         
         $conexion=  GenericoBD::conectar();
         
-        $query="select * from ausencia_individual where trabajador_id=(select id from trabajador where id=".$trabajador->getId_trabajador().")";
+        $query="select * from ausencia_general where centro_id=(select id from centro where id=".$centro->getId_centro().")";
         
         $rs=  mysql_query($conexion,$query) or die(mysql_error());
         $ausencias=NULL;
