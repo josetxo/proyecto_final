@@ -1,25 +1,211 @@
 function validar_login(dni,pass)
 {
-	alert("ENTRA")
-	if(dni != "")
+	if(validarVacio(dni))
 	{
-		var resp = validarDNI(dni);
-
-		if(resp)
+		if(validarVacio(pass))
 		{
-			if(pass != "")
+			if(validarDni(dni))
 			{
-				fLogin.submit();
+				if(validarCaracteres("mayor", "5", pass))
+				{
+					fLogin.submit();
+				}
+			}	
+		}	
+	}
+}
+
+
+function validar_borrar_modificar(dni,dato)
+{
+	if(validarVacio(dni))
+	{
+		if (validarDni(dni))
+		{
+			if(dato == "borrar")
+			{
+				fBorrar.submit;
 			}
 			else
+				{
+					if(dato == "modificar")
+					{
+						fModificar.submit;
+					}
+				}		
+		}
+	}
+}
+
+
+function validar_borrar_modificar_ausencia(id_ausencia)
+{
+	if(validarVacio(id_ausencia))
+	{
+		if (validarNumerico(id_ausencia))
+		{
+			if(dato == "borrar")
 			{
-				alert("ERROR. Contraseña vacia");
+				fBorrarAusencia.submit;
+			}
+			else
+				{
+					if(dato == "modificar")
+					{
+						fModificarAusencia.submit;
+					}
+				}		
+		}
+	}
+}
+
+//Falta validar Fecha de Calendario escogida
+function validar_insertar_modificar2_ausencia(tipo_ausencia, dato)
+{
+	if(validarComboBox(tipo_ausencia))
+	{
+		if(dato== "insertar")
+		{
+			fInsertAusencia.submit;
+		}
+		else
+			{
+				fModificar2Ausencia.submit;
+			}
+	}
+}
+
+
+
+function validar_insertar_modificar2(nombre, apellido1, apellido2, telefono, id_perfil, id_centro, dni, pass, dato)
+{
+	if(validarVacio(nombre))
+	{
+		if(validarVacio(apellido1))
+		{
+			if(validarVacio(apellido2))
+			{
+				if(validarVacio(telefono))
+				{
+					if(validarVacio(dni))
+					{
+						if(validarVacio(pass))
+						{
+							if(validarComboBox(id_perfil))
+							{
+								if(validarComboBox(id_centro))
+								{
+									if(validarNumerico(telefono))
+									{
+										if(validarCaracteres("igual","9", telefono))
+										{
+											if(validarDni(dni))
+											{
+												if(validarCaracteres("mayor", "5", pass))
+												{
+													if(dato == "insertar")
+													{
+														fInsert.submit;
+													}
+													else
+														{
+															fModificar2.submit;
+														}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
-	else
+}
+
+
+
+function validarComboBox(combo)
+{
+	try
 	{
-		alert("ERROR. DNI vacio");
+		if(combo == "no")
+		{
+			throw "Tienes que seleccionar una opcion de las listas desplegables o Combo-Box";
+		}
+		return true;
+	}
+	catch(e)
+	{
+		alert(e.toString());
+		return false;
+	}
+}
+
+
+function validarNumerico(dato)
+{
+	try
+	{
+		if(isNaN(dato))
+		{
+			throw "Has insertado caracteres no-numericos en un campo de texto numerico";
+		}
+		return true;
+	}
+	catch(e)
+	{
+		alert(e.toString());
+		return false;
+	}
+}
+
+
+function validarCaracteres(accion,caracteres,palabra)
+{
+	try
+	{
+		if(accion=="mayor")
+		{
+			if(palabra.length < caracteres)
+			{
+				throw "No has respetado el numero de caracteres obligatorio en algun campo de texto: \n\n -Contraseña: Obligatorio 5 caracteres minimo.\n -Telefono: Obligatorio 9 caracteres.";
+			}
+			return true;
+		}
+		else
+			{		
+				if(palabra.length != caracteres)
+				{
+					throw "No has respetado el numero de caracteres obligatorio en algun campo de texto: \n\n -Contraseña: Obligatorio 5 caracteres minimo.\n -Telefono: Obligatorio 9 caracteres.";
+				}
+				return true;
+			}
+	}
+	catch(e)
+	{
+		alert(e.toString());
+		return false;
+	}		
+}
+
+
+function validarVacio(dato)
+{
+	try
+	{
+		if(dato == "" || dato == null)
+		{
+			throw "Has dejado vacio algun campo de texto obligatorio";
+		}
+		return true;
+	}
+	catch(e)
+	{
+		alert(e.toString());
+		return false;
 	}
 }
 
@@ -47,8 +233,7 @@ function validarDni(dni)
 
 			if (letra!=let) 
 			{
-				throw('Dni erroneo, la letra del NIF no se corresponde');
-				return false;
+				throw "Dni erroneo, la letra del NIF no se corresponde";
 			}
 			else
 				{
@@ -57,136 +242,12 @@ function validarDni(dni)
 		}
 		else
 			{
-				throw('Dni erroneo, formato no valido');
-				return false;
+				throw "Dni erroneo, formato no valido";
 			}
 	}
 	catch(e)
 	{
-		alert(e.message);
+		alert(e.toString());
+		return false;
 	}
-
-
-}
-
-function validar_borrar_modificar(dni)
-{
-	if()
-
-	if (validarDni(dni))
-	{
-		
-		if(isset($_SESSION))
-		fModificarBorrar.submit;
-	}
-}
-
-function validar_borrar_modificar_ausencia(id_ausencia)
-{
-	try 
-	{
-		if(id_ausencia == "" && isNaN(id_ausencia))
-		{
-			throw("Error. Ausencia vacia o id numerica mal introducida");
-		}
-		else
-			{
-				fBorrarModificarAusencia.submit;
-			}
-	}
-	catch(e)
-	{
-		alert(e.message);
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function validarModificarAlumno(nombre,apellido1,curso)
-{
-	if(nombre != "")
-	{
-		if(apellido1 != "")
-		{
-			if(curso != "")
-			{
-				fMAlumno.submit();
-			}
-			else
-			{
-				alert("ERROR. Curso vacio");
-			}
-		}
-		else
-		{
-			alert("ERROR. Apellido vacia");
-		}
-	}
-	else
-	{
-		alert("ERROR. Nombre vacio");
-	}
-}
-
-
-
-
-function validarEliminarAlumno()
-{
-	var dni = fEAlumno.DNI.value;
-	alert(dni);
-	var sw = 0;
-	dni = dni.toUpperCase();
-	dniDev = dni.toUpperCase();
-	dni = dni.replace('X','0');
-	numero = dni.substr(0,dni.length-1);
-	let = dni.substr(dni.length-1,1);
-	letra=’TRWAGMYFPDXBNJZSQVHLCKET’;
-	for(i=0;i<letra.length;i++)
-	{
-		if(letra.charAt(i)==let)
-		{
-			document.getElementById(1).value = dniDev;
-			alert("DNI correcto");
-			sw = 1;
-			submit();
-		}
-	}
-	
-	if(sw==0)
-	{
-		alert("ERROR. DNI no valido");
-	}
-}
-
-
-function validarVacio(dato)
-{
-	try
-	{
-		if(dato == "" || dato == null)
-		{
-
-		}
-	}
-	catch()
-	{
-
-	}
-
-
-
 }

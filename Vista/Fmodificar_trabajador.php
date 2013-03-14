@@ -47,6 +47,7 @@
 						
 						<label>Perfil</label>
 						<select style="width:100px" name="id_perfil" id="id_perfil">
+							<option selected="selected" value="no">Elige un perfil...</option>
 							<option>Perfil 1</option>
 							<option>Perfil 2</option>
 						</select>
@@ -55,9 +56,12 @@
 
 						<label>Centro</label>
 						<select style="width:100px" name="id_centro" id="id_centro">
+							<option selected="selected" value="no">Elige un centro...</option>
 							<option>Centro 1</option>
 							<option>Centro 2</option>
 						</select>
+
+						<input type="hidden" name="modificar" id="modificar" value="modificar" >
 
 				    </fieldset>
 
@@ -69,7 +73,7 @@
 					<fieldset>
 					<legend>Insertar Datos de Inicio De Sesion</legend>		
 							
-						<label>DNI</label>
+						<label>DNI (8 Numeros seguido de letra mayuscula)</label>
 						<input type="text" name="dni" id="dni">
 
 						<label>Contraseña</label>
@@ -84,7 +88,7 @@
 
 			<div class="row">
 				<div class="four columns centered">
-					<input class="button left" type="button" value="Enviar" onclick="validar_insertar_modificar2(fModificar2.nombre.value, fModificar2.apellido1.value, fModificar2.apellido2.value, fModificar2.telefono.value, fModificar2.id_perfil.value, fModificar2.id_centro.value, fModificar2.dni.value, fModificar2.pass.value)" />
+					<input class="button left" type="button" value="Enviar" onclick="validar_insertar_modificar2(fModificar2.nombre.value, fModificar2.apellido1.value, fModificar2.apellido2.value, fModificar2.telefono.value, fModificar2.id_perfil.value, fModificar2.id_centro.value, fModificar2.dni.value, fModificar2.pass.value, fModificar2.modificar.value)" />
 					<input class="button right" type="reset" value="Borrar" />
 				</div>
 			</div>

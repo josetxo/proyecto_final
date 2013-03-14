@@ -31,6 +31,7 @@
 						
 						<label>Perfil</label>
 						<select style="width:100px" name="id_perfil" id="id_perfil">
+							<option selected="selected" value="no">Escoge un perfil...</option>
 							<option>Perfil 1</option>
 							<option>Perfil 2</option>
 						</select>
@@ -39,9 +40,12 @@
 
 						<label>Centro</label>
 						<select style="width:100px" name="id_centro" id="id_centro">
+							<option selected="selected" value="no">Escoge un centro...</option>
 							<option>Centro 1</option>
 							<option>Centro 2</option>
 						</select>
+
+						<input type="hidden" name="insertar" id="insertar" value="insertar" >
 
 				    </fieldset>
 
@@ -68,7 +72,7 @@
 
 			<div class="row">
 				<div class="four columns centered">
-					<input class="button left" type="button" value="Enviar" onclick="validar_insertar_modificar2(fInsert.nombre.value, fInsert.apellido1.value, fInsert.apellido2.value, fInsert.telefono.value, fInsert.id_perfil.value, fInsert.id_centro.value, fInsert.dni.value, fInsert.pass.value)" />
+					<input class="button left" type="button" value="Enviar" onclick="validar_insertar_modificar2(fInsert.nombre.value, fInsert.apellido1.value, fInsert.apellido2.value, fInsert.telefono.value, fInsert.id_perfil.value, fInsert.id_centro.value, fInsert.dni.value, fInsert.pass.value, fInsert.insertar.value)" />
 					<input class="button right" type="reset" value="Borrar" />
 				</div>
 			</div>

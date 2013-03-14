@@ -26,7 +26,7 @@
 						</div>
 					</div>
 			   </fieldset>
-			</form>
+			</fdorm>
 		</div>
 	</div>
   <!-- Fin del contenido -->

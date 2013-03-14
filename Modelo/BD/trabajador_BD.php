@@ -28,7 +28,17 @@ class trabajador_BD extends GenericoBD{
 
         $query="select * from trabajador where id_centro=(select id from centro where id=".$centro->getId_centro().")";
         
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        ///// FALLO EN EL CENTRO
+>>>>>>> 79f3607294e0f72a1ca1821df8d06fddc58daf43
+        $query="select * from trabajador where id_centro=(select id from centro where id=".$cetro->getId_centro().")";
+        
+        $rs=  mysql_query($conexion,$query) or die(mysql_error());
+=======
         $rs=  mysql_query($query,$conexion) or die(mysql_error());
+>>>>>>> 32877df0f2801a1ac61b7a8d50ad40ac8cc7053d
         $trabajadores=NULL;
         
         if(mysql_num_rows($rs)>0){
