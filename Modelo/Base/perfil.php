@@ -1,10 +1,11 @@
 <?php
 
 class perfil {
-    private $id_perfil;
+    private $id;
     private $nombre;
     private $descripcion;
     private $serv_minimos;
+    private $horas_anuales;
 //objeto rol
     private $rol;
     
@@ -26,10 +27,11 @@ class perfil {
     {
 
             //datos perfil
-            $this->id_perfil=$datos['id_perfil'];
+            $this->id=$datos['id'];
             $this->nombre=$datos['nombre'];
             $this->descripcion=$datos['descripcion'];
             $this->serv_minimos=$datos['serv_minimos'];
+            $this->horas_anuales=$datos['horas_anuales'];
             
             $this->rol=NULL;
             
@@ -38,11 +40,11 @@ class perfil {
     
 //id_perfil
     public function getId_perfil(){
-        return $this->id_perfil;
+        return $this->id;
     }
     
     public function setId_perfil($id_perfil){
-        $this->id_perfil=$id_perfil;
+        $this->id=$id_perfil;
     }
     
 //nombre
@@ -70,6 +72,15 @@ class perfil {
     
     public function setServ_minimos($Serv_minimos){
         $this->serv_minimos=$Serv_minimos;
+    }
+    
+//horas anuales
+    public function getHoras_anuales(){
+        return $this->horas_anuales;
+    }
+    
+    public function setHoras_anuales($horas_anuales){
+        $this->horas_anuales=$horas_anuales;
     }
     
 //objeto rol

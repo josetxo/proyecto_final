@@ -6,7 +6,7 @@ class sesion extends GenericoBD{
         session_start();
     }
     
-    public function set($nombre,$valor){//pongo nombre y valor en la sesion
+    public static function set($nombre,$valor){//pongo nombre y valor en la sesion
         $_SESSION[$nombre] = $valor;
     }
     
@@ -40,12 +40,34 @@ class sesion extends GenericoBD{
         if(mysql_num_rows($rs)==1){
            $fila = mysql_fetch_assoc($rs);
            
-           set("id_trabajador",$fila['id']);
-           set("dni",$fila['dni']);
-           set("pass",$fila['pass']);
-           $valido=TRUE;
+           self::set("id_trabajador",$fila['id']);
+           self::set("dni",$fila['dni']);
+           self::set("username",$fila['nombre']);
+           self::set("pass",$fila['pass']);
+           $queryperfil="select * from perfil where id=(select id_perfil from trabajador where id='".self::get('id_trabajador')."')";
+           $rsperfil=  mysql_query($queryperfil,$conexion) or die(mysql_error());
+           if(mysql_num_rows($rsperfil)==1){
+               $filaPerfil=  mysql_fetch_assoc($rsperfil);
+               self::set("perfil", $filaPerfil['id']);
+               switch (self::get('perfil')) {
+                   case 0:
+                       self::set("per", "administrador");
+                       break;
+                   case 1:
+                       self::set("per", "jefe");
+                       break;
+
+                   default:
+                       self::set("per", "trabajador");
+                       break;
+               }
+               $valido=TRUE;
+           }else{
+               $valido=FALSE;
+           }
          }else{
            echo"<br>no es un usuario <br><br>";
+           
            $valido=FALSE;
          }           
         

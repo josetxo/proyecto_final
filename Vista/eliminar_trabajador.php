@@ -11,11 +11,7 @@
 	<div class="row">
 		<div class="eight columns centered">			
 
-<<<<<<< HEAD
 			<form name="fBorrar" method="POST" action="eliminarGlobal.php">
-=======
-			<form name="fBorrar" method="POST" action="eliminar.php">
->>>>>>> 79f3607294e0f72a1ca1821df8d06fddc58daf43
 			  <fieldset>
 			  <legend>Eliminar Trabajador</legend>
 					<div class="row"><br>

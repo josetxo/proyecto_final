@@ -23,7 +23,7 @@
 			<div class="three columns"><label class="inline">Contraseña</label></div>
 			<div class="nine columns"><input type="password" name="pass" placeholder="contraseña" />
 			</div>		
-			<input type="button" class="radius button" value="Acceder" onclick="validar_login(fLogin.dni.value,fLogin.pass.value)" />	
+			<input type="submit" class="radius button" value="Acceder" onclick="validar_login(fLogin.dni.value,fLogin.pass.value)" />	
 		</form>
 		<?php
 			if($_GET['resp'] == 1)

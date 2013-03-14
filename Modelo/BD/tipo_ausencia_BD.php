@@ -1,5 +1,5 @@
 <?php
-require_once 'GenericoBD';
+require_once 'GenericoBD.php';
 class tipo_ausencia_BD extends GenericoBD {
     
     public function obtenerTipoAusenciaGeneral($ausen_gen){//obetener un tipò de ausencia segun una ausencia general
@@ -8,7 +8,7 @@ class tipo_ausencia_BD extends GenericoBD {
         
         $query="select * from tipo_ausencia where id=(select tipo_ausencia_id from ausencia_general where id=".$ausen_gen->getId_ausencia_general().")";
         
-        $rs=mysql_query($query,$conexion) or die (mysql_error());
+        $rs=mysql_query($conexion,$query) or die (mysql_error());
         $tipo_ausen=null;
         
         if(mysql_num_rows($rs)==1){
@@ -26,7 +26,7 @@ class tipo_ausencia_BD extends GenericoBD {
         
         $query="select * from tipo_ausencia order by id";
         
-        $rs=  mysql_query($query,$conexion) or die (mysql_error());
+        $rs=  mysql_query($conexion,$query) or die (mysql_error());
         $tipos_ausencia=NULL;
         
         if(mysql_num_rows($rs)>0){
@@ -43,7 +43,7 @@ class tipo_ausencia_BD extends GenericoBD {
         
         $query="select * from tipo_ausencia where id=".$id_tipo_ausencia;
         
-        $rs=  mysql_query($query,$conexion) or die(mysql_error());
+        $rs=  mysql_query($conexion, $query) or die(mysql_error());
         $tipo_ausencia=NULL;
         
         if(mysql_num_rows($rs)==0){

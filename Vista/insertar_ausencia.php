@@ -9,7 +9,7 @@
 		</div>	
 	</div>
 	<div class="row">
-		<form name="fInsertAusencia">
+		<form name="fInsert">
 
 			<div class="row">
 			    <div class="five columns centered">
@@ -27,12 +27,9 @@
 
 						<label>Ausencia</label>
 						<select style="width:100px" name="tipo_ausencia_id" id="tipo_ausencia_id">
-							<option value="no" selected="selected">Elige un tipo de ausencia...</option>
 							<option>Ausencia 1</option>
 							<option>Ausencia 2</option>
 						</select>
-
-						<input type="hidden" name="insertar" id="insertar" value="insertar" >
 
 				    </fieldset>
 
@@ -43,7 +40,7 @@
 
 			<div class="row">
 				<div class="four columns centered">
-					<input class="button left" type="button" value="Enviar" onclick="validar_insertar_modificar2_ausencia(fInsertAusencia.tipo_ausencia_id.value, fInsertAusencia.insertar.value)" />
+					<input class="button left" type="button" value="Enviar" onclick="validar_insertar_modificar2_ausencia(fInsert.fecha.value, fInsert.tipo_ausencia_id.value)" />
 					<input class="button right" type="reset" value="Borrar" />
 				</div>
 			</div>

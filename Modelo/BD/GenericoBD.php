@@ -46,6 +46,14 @@ class GenericoBD
                                     $result[$x] = $objeto;
                                     $x++;
                             }
+                            
+            case "empresa":
+                while ($fila = mysql_fetch_assoc($rs))
+                            {
+                                    $objeto = new trabajador($fila);
+                                    $result[$x] = $objeto;
+                                    $x++;
+                            }
 
 
 

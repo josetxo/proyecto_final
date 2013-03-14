@@ -1,6 +1,5 @@
 <?php
 
-
 class trabajador {
     private $id_trabajador;
     private $dni;

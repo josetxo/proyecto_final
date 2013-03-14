@@ -1,5 +1,5 @@
 <?php
-require_once 'GenericoBD';
+require_once 'GenericoBD.php';
 
 class ausencia_general_BD extends GenericoBD{
     
@@ -9,7 +9,7 @@ class ausencia_general_BD extends GenericoBD{
         
         $query="select * from ausencia_general where centro_id=(select id from centro where id=".$centro->getId_centro().")";
         
-        $rs=  mysql_query($query,$conexion) or die(mysql_error());
+        $rs=  mysql_query($conexion,$query) or die(mysql_error());
         $ausencias=NULL;
         
         if(mysql_num_rows($rs)>0){
@@ -20,6 +20,7 @@ class ausencia_general_BD extends GenericoBD{
         GenericoBD::desconectar($conexion);
         return $ausencias;
     }
+    
 
 }
 

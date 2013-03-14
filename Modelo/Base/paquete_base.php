@@ -1,7 +1,10 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+require_once 'ausencia_individual.php';
+require_once 'ausencias_generales.php';
+require_once 'centro.php';
+require_once 'empresa.php';
+require_once 'perfil.php';
+require_once 'rol.php';
+require_once 'tipo_ausencia.php';
+require_once 'trabajador.php';
 ?>
