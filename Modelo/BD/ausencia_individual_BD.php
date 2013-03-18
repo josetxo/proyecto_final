@@ -14,18 +14,42 @@ class ausencia_individual_BD extends GenericoBD{
         
         if(mysql_num_rows($rs)>0){
             
-            $ausencias=  GenericoBD::convertir_array($rs, "ausencia_general");
+            $ausencias =  GenericoBD::convertir_array($rs, "ausencia_individual");
             
         }
         GenericoBD::desconectar($conexion);
         return $ausencias;
     }
+	
+	public function obtenerAusenciasTotalesTodosTrabajadores()
+	{
+		$conexion = GenericoBD::conectar();
+		
+		$query = "SELECT * from ausencia_individual WHERE valorado='no'";
+		$r = mysql_query($query,$conexion) or die (mysql_error());
+		
+		if(mysql_num_rows($rs)>0)
+		{    
+            $ausencias =  GenericoBD::convertir_array($rs, "ausencia_individual");
+        }
+		
+		return $ausencias;
+	}
+	
+	public function cambiarEstadoAusencia($id)
+	{
+		$conexion = GenericoBD::conectar();
+    	
+    	$query = "UPDATE ausencia_individual SET valorado='si' WHERE id='".$id."'";
+    	
+    	mysql_query($query,$conexion) or die (mysql_error());
+	}
     
 	public function EliminarAusenciasDeTrabajador($id)
     {
     	$conexion = GenericoBD::conectar();
-    	
-    	$query = "DELETE from ausencia_individual WHERE id_trabajador='".$id."'";
+    	//cambio de id_trabajador a id de ausencias
+    	$query = "DELETE from ausencia_individual WHERE id='".$id."'";
     	
     	mysql_query($query,$conexion) or die (mysql_error());
     }

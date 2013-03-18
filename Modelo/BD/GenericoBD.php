@@ -50,10 +50,18 @@ class GenericoBD
             case "empresa":
                 while ($fila = mysql_fetch_assoc($rs))
                             {
-                                    $objeto = new trabajador($fila);
+                                    $objeto = new empresa($fila);
                                     $result[$x] = $objeto;
                                     $x++;
                             }
+							
+			case "ausencia_individual":
+                while ($fila = mysql_fetch_assoc($rs))
+                {
+					$objeto = new ausencia_individual($fila);
+					$result[$x] = $objeto;
+					$x++;
+                }
 
 
 
