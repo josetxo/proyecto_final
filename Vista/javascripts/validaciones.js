@@ -250,4 +250,185 @@ function validarDni(dni)
 		alert(e.toString());
 		return false;
 	}
+
 }
+
+
+
+  function validar()
+        {
+        	alert("hola");
+
+            var mensaje= document.getElementById("texto").innerHTML;
+
+            var array = mensaje.split(" ");
+
+
+
+            var mes1;
+
+            switch(array[1])
+            {
+
+                case 'January,':
+
+                     mes1="01";
+
+                break;
+
+                case 'February,':
+
+                     mes1="02";
+
+                break;
+
+                case 'March,':
+
+                     mes1="03";
+
+                break;
+
+                case 'April,':
+
+                     mes1="04";
+
+                break;
+
+                case 'May,':
+
+                     mes1="05";
+
+                break;
+
+                case 'June,':
+
+                     mes1="06";
+
+                break;
+
+                case 'July,':
+
+                     mes1="07";
+
+                break;
+
+                case 'August,':
+
+                     mes1="08";
+
+                break;
+
+                case 'September,':
+
+                     mes1="09";
+
+                break;
+
+                case 'October,':
+
+                     mes1="10";
+
+                break;
+
+                case 'November,':
+
+                     mes1="11";
+
+                break;
+
+                case 'December,':
+
+                     mes1="12";
+
+                break;
+            }
+
+
+            var mes2;
+
+            switch(array[5])
+            {
+
+                case 'January,':
+
+                     mes2="01";
+
+                break;
+
+                case 'February,':
+
+                     mes2="02";
+
+                break;
+
+                case 'March,':
+
+                     mes2="03";
+
+                break;
+
+                case 'April,':
+
+                     mes2="04";
+
+                break;
+
+                case 'May,':
+
+                     mes2="05";
+
+                break;
+
+                case 'June,':
+
+                     mes2="06";
+
+                break;
+
+                case 'July,':
+
+                     mes2="07";
+
+                break;
+
+                case 'August,':
+
+                     mes2="08";
+
+                break;
+
+                case 'September,':
+
+                     mes2="09";
+
+                break;
+
+                case 'October,':
+
+                     mes2="10";
+
+                break;
+
+                case 'November,':
+
+                     mes2="11";
+
+                break;
+
+                case 'December,':
+
+                     mes2="12";
+
+                break;
+            }
+
+            var fecha_inicio = (array[2]+"-"+mes1+"-"+array[0]);
+            var fecha_final = (array[6]+"-"+mes2+"-"+array[4]);
+
+
+
+            document.getElementById("fecha_ini").value = fecha_inicio;
+            document.getElementById("fecha_fin").value = fecha_final;
+       
+        }
+    }
