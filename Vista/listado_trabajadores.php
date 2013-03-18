@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require_once 'Modelo/Base/paquete_base.php';
 include('plantilla/cabecera.php'); ?>
 <?php include ('plantilla/menu_jefe.php'); ?>
 
