@@ -27,7 +27,7 @@ class centro {
     {
 
             //datos centro
-            $this->id_centro =$datos['id_centro'];
+            $this->id_centro =$datos['id'];
             $this->descripcion=$datos['descripcion'];
             $this->localizacion=$datos['localizacion'];
             $this->horas_calendario=$datos['horas_calendario'];

@@ -6,7 +6,7 @@
 	
 	$ausencia = unserialize($_SESSION['ausencia']);
 	
-	$id = $ausencia_>getId();
+	$id = $ausencia->getId_ausencia();
 	
 	if($_GET['resp'] == "aceptado")
 	{
@@ -17,6 +17,5 @@
 		Controlador::eliminarAusencia($id);
 	}
 
-	ob_clear();
 	header("LOCATION: listado_trabajadores.php");
 ?>

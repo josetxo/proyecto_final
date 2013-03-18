@@ -3,7 +3,7 @@ require_once 'GenericoBD.php';
 
 class ausencia_individual_BD extends GenericoBD{
     
-    public function obtenerAusenciasTrabajador($trabajador){//obtener todas las ausencias de un trabajador
+    public static function obtenerAusenciasTrabajador($trabajador){//obtener todas las ausencias de un trabajador
         
         $conexion=  GenericoBD::conectar();
         
@@ -21,13 +21,13 @@ class ausencia_individual_BD extends GenericoBD{
         return $ausencias;
     }
 	
-	public function obtenerAusenciasTotalesTodosTrabajadores()
+	public static function obtenerAusenciasTotalesTodosTrabajadores()
 	{
 		$conexion = GenericoBD::conectar();
 		
 		$query = "SELECT * from ausencia_individual WHERE valorado='no'";
-		$r = mysql_query($query,$conexion) or die (mysql_error());
-		
+		$rs = mysql_query($query,$conexion) or die (mysql_error());
+		$ausencias=NULL;
 		if(mysql_num_rows($rs)>0)
 		{    
             $ausencias =  GenericoBD::convertir_array($rs, "ausencia_individual");
@@ -36,7 +36,7 @@ class ausencia_individual_BD extends GenericoBD{
 		return $ausencias;
 	}
 	
-	public function cambiarEstadoAusencia($id)
+	public static function cambiarEstadoAusencia($id)
 	{
 		$conexion = GenericoBD::conectar();
     	
@@ -45,13 +45,18 @@ class ausencia_individual_BD extends GenericoBD{
     	mysql_query($query,$conexion) or die (mysql_error());
 	}
     
-	public function EliminarAusenciasDeTrabajador($id)
+	public static function EliminarAusenciasDeTrabajador($id)
     {
     	$conexion = GenericoBD::conectar();
     	//cambio de id_trabajador a id de ausencias
     	$query = "DELETE from ausencia_individual WHERE id='".$id."'";
     	
-    	mysql_query($query,$conexion) or die (mysql_error());
+    	$rs=mysql_query($query,$conexion) or die (mysql_error());
+        if($rs){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
     }
 }
 

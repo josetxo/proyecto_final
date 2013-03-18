@@ -4,7 +4,7 @@ class ausencia_individual {
     private $id_ausencia;
     private $fecha_inicio;
     private $fecha_fin;
-	private $valorado;
+    private $valorado;
 //objeto trabajador
     private $trabajador;
 //objeto tipo ausencia
@@ -27,10 +27,10 @@ class ausencia_individual {
     {
 
             //datos ausencia_individual
-            $this->id_ausencia=$datos['id_ausencia'];
+            $this->id_ausencia=$datos['id'];
             $this->fecha_inicio=$datos['fecha_inicio'];
             $this->fecha_fin=$datos['fecha_fin'];
-			$this->valorado=$datos['valorado'];
+            $this->valorado=$datos['valorado'];
 			
             $this->trabajador=NULL;
             $this->tipo_ausencia=NULL;

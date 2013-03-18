@@ -25,12 +25,7 @@
 			</div>		
 			<input type="submit" class="radius button" value="Acceder" onclick="validar_login(fLogin.dni.value,fLogin.pass.value)" />	
 		</form>
-		<?php
-			if($_GET['resp'] == 1)
-			{
-				echo "<b style='color:red;'>Error. Usuario o contrase&ntilde;a incorrecto</b>";
-			}
-		?>
+		
         </li>        
       </ul>
     </div>  

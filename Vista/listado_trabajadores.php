@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-require_once 'Modelo/Base/paquete_base.php';
+require_once 'Controlador/controlador.php';
 include('plantilla/cabecera.php'); ?>
 <?php include ('plantilla/menu_jefe.php'); ?>
 
@@ -13,7 +12,8 @@ include('plantilla/cabecera.php'); ?>
 		</div>
 	  <div class="twelve columns">
 			<?php
-				$listadoAusencias = Controlador::ListadoTrabajadoresAusencias();
+				$listadoAusencias = controlador::ListadoTrabajadoresAusencias();
+                                
 			?>
 			
 			<table border="0">
@@ -28,15 +28,16 @@ include('plantilla/cabecera.php'); ?>
 					<td>aceptar/rechazar ausencias</td>
 				</tr>
 				<?php
-					for($x=0;$x<$listadoAusencias.length;$x++)
+					for($x=0;$x<count($listadoAusencias);$x++)
 					{
 						echo "<tr>";
 							echo "<td>".$listadoAusencias[$x]->getTrabajador()->getNombre()."</td>";
 							echo "<td>".$listadoAusencias[$x]->getTrabajador()->getApellido1()."</td>";
 							echo "<td>".$listadoAusencias[$x]->getTrabajador()->getDni()."</td>";
 							echo "<td>".$listadoAusencias[$x]->getTrabajador()->getPerfil()->getNombre()."</td>";
-							echo "<td>".$listadoAusencias[$x]->getFecha_inicio()->."</td>";
+							echo "<td>".$listadoAusencias[$x]->getFecha_inicio()."</td>";
 							echo "<td>".$listadoAusencias[$x]->getFecha_fin()."</td>";
+                                                        echo "<td>".$listadoAusencias[$x]->getValorado()."</td>";
 							$_SESSION['ausencia'] = serialize($listadoAusencias[$x]);
 							
 							echo "<td><a href='respuestaausencias.php?resp=aceptado'>Aceptar</a> || <a href='respuestaausencias.php?resp=rechazado'>Rechazar</a></td>";

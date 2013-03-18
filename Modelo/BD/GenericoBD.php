@@ -55,13 +55,34 @@ class GenericoBD
                                     $x++;
                             }
 							
-			case "ausencia_individual":
+            case "centro":
                 while ($fila = mysql_fetch_assoc($rs))
-                {
-					$objeto = new ausencia_individual($fila);
-					$result[$x] = $objeto;
-					$x++;
-                }
+                            {
+                                    $objeto = new centro($fila);
+                                    $result[$x] = $objeto;
+                                    $x++;
+                            }
+            case "ausencia_general":
+                while ($fila = mysql_fetch_assoc($rs))
+                            {
+                                    $objeto = new ausencia_general($fila);
+                                    $result[$x] = $objeto;
+                                    $x++;
+                            }
+            case "ausencia_individual":
+                while ($fila = mysql_fetch_assoc($rs))
+                            {
+                                    $objeto = new ausencia_individual($fila);
+                                    $result[$x] = $objeto;
+                                    $x++;
+                            }
+            case "tipo_ausencia":
+                while ($fila = mysql_fetch_assoc($rs))
+                            {
+                                    $objeto = new tipo_ausencia($fila);
+                                    $result[$x] = $objeto;
+                                    $x++;
+                            }
 
 
 

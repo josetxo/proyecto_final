@@ -31,7 +31,7 @@ class trabajador {
     {
 
             //datos trabajador
-            $this->id_trabajador =$datos['id_trabajador'];
+            $this->id_trabajador =$datos['id'];
             $this->dni=$datos['dni'];
             $this->pass=$datos['pass'];
             $this->nombre=$datos['nombre'];
@@ -111,6 +111,7 @@ class trabajador {
 //id_perfil
     public function getPerfil(){
         if($this->perfil==NULL){
+            echo $this->id_trabajador;
             self::setPerfil(perfil_bd::obtenerPerfilTrabajador($this));
             
         }

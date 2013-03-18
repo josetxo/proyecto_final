@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 include('plantilla/cabecera.php'); ?>
 <?php include ('plantilla/menu_jefe.php'); ?>

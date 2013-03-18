@@ -11,7 +11,7 @@
 	<div class="row">
 		<div class="eight columns centered">			
 
-			<form name="fBorrar" method="POST" action="eliminarGlobal.php">
+			<form name="fBorrar" method="POST" action="ad_eliminar_trabajador.php">
 			  <fieldset>
 			  <legend>Eliminar Trabajador</legend>
 					<div class="row"><br>
@@ -21,7 +21,7 @@
 					</div>  	  
 		  	  		<div class="row">
 		  	  			<div class="six columns centered">
-							<input class="button left" type="button" value="Enviar" onclick="validar_borrar_modificar(fBorrar.dni.value, fBorrar.borrar.value)" />
+							<input class="button left" type="submit" value="Enviar" onclick="validar_borrar_modificar(fBorrar.dni.value, fBorrar.borrar.value)" />
 							<input class="button right" type="reset" value="Borrar" />
 						</div>
 					</div>
